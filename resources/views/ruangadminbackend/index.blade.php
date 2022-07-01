@@ -1,4 +1,4 @@
-  @extends('admin.layouts.main')
+  @extends('ruangadminbackend.layouts.main')
 
   @section('menuContent')
   <!-- Container Fluid-->

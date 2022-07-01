@@ -20,11 +20,16 @@
     <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
 
     <style>
-    .landingpage-anggota {
-        overflow: auto;
-        white-space: nowrap;
-    }
+        .landingpage-anggota {
+            overflow: auto;
+            white-space: nowrap;
+        }
+
     </style>
+
+    {{-- trix editor --}}
+    <link rel="stylesheet" type="text/css" href="/css/trix.css">
+    <script type="text/javascript" src="/js/trix.js"></script>
 
 
 </head>
@@ -33,7 +38,7 @@
     <div id="wrapper">
         <!-- Sidebar -->
         <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{  url('/admin') }}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{  url('ruangadminbackend') }}">
                 <div class="sidebar-brand-icon">
                     <img src="{{ asset('img/logo/logo.png') }}">
                 </div>
@@ -41,7 +46,7 @@
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
-                <a class="nav-link" href="{{  url('/admin') }}">
+                <a class="nav-link" href="{{  url('/ruangadminbackend') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -52,78 +57,67 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap" aria-expanded="true" aria-controls="collapseBootstrap">
                     <i class="far fa-fw fa-window-maximize"></i>
-                    <span>Menu</span>
+                    <span>Landing Page</span>
                 </a>
                 <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{  url('/admin/landingpageheader') }}">Kepengurusan Perusahaan</a>
-                        <a class="collapse-item" href="{{  url('/admin/landingpageberita') }}">Admin</a>
-                        <a class="collapse-item" href="{{  url('/admin/landingpageberita') }}">Gerai</a>
-                        <a class="collapse-item" href="{{  url('/admin/landingpagejenisprogram') }}">Pengelola Gerai</a>
-                        <a class="collapse-item" href="{{  url('/admin/landingpageagenda') }}">Bisnis Developer</a>
-                        <a class="collapse-item" href="{{  url('/admin/backendanggota') }}">Pelanggan</a>
-                        <a class="collapse-item" href="{{  url('/admin/communitypartners') }}">Pembayaran</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Keuangan</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Suplier</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Kategori</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Sub Kategori</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Produk</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Statistik Produk</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Setting</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Slider</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Kategori Unggulan</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Berita</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Akun</a>
+                        <a class="collapse-item" href="{{  url('/landingpageheader') }}">Kepengurusan Perusahaan</a>
+                        <a class="collapse-item" href="{{  url('/landingpageberita') }}">Admin</a>
+                        <a class="collapse-item" href="{{  url('/landingpageberita') }}">Gerai</a>
+                        <a class="collapse-item" href="{{  url('/landingpagejenisprogram') }}">Pengelola Gerai</a>
+                        <a class="collapse-item" href="{{  url('/landingpageagenda') }}">Bisnis Developer</a>
+                        <a class="collapse-item" href="{{  url('/backendanggota') }}">Pelanggan</a>
+                        <a class="collapse-item" href="{{  url('/communitypartners') }}">Pembayaran</a>
+                        <a class="collapse-item" href="{{  url('/keuangan') }}">Keuangan</a>
+                        <a class="collapse-item" href="{{  url('/keuangan') }}">Suplier</a>
+                        <a class="collapse-item" href="{{  url('/keuangan') }}">Kategori</a>
+                        <a class="collapse-item" href="{{  url('/keuangan') }}">Sub Kategori</a>
+                        <a class="collapse-item" href="{{  url('/keuangan') }}">Produk</a>
+                        <a class="collapse-item" href="{{  url('/keuangan') }}">Statistik Produk</a>
+                        <a class="collapse-item" href="{{  url('/keuangan') }}">Setting</a>
+                        <a class="collapse-item" href="{{  url('/keuangan') }}">Slider</a>
+                        <a class="collapse-item" href="{{  url('/keuangan') }}">Kategori Unggulan</a>
+                        <a class="collapse-item" href="{{  url('/keuangan') }}">Berita</a>
+                        <a class="collapse-item" href="{{  url('/keuangan') }}">Akun</a>
                         @if(auth()->user()->level=='super-admin')
-                        <a class="collapse-item" href="{{  url('/admin/landingpageheader') }}">Kepengurusan Perusahaan</a>
-                        <a class="collapse-item" href="{{  url('/admin/landingpageberita') }}">Admin</a>
-                        <a class="collapse-item" href="{{  url('/admin/landingpageberita') }}">Gerai</a>
-                        <a class="collapse-item" href="{{  url('/admin/landingpagejenisprogram') }}">Pengelola Gerai</a>
-                        <a class="collapse-item" href="{{  url('/admin/landingpageagenda') }}">Bisnis Developer</a>
-                        <a class="collapse-item" href="{{  url('/admin/backendanggota') }}">Pelanggan</a>
-                        <a class="collapse-item" href="{{  url('/admin/communitypartners') }}">Pembayaran</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Keuangan</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Suplier</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Kategori</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Sub Kategori</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Produk</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Statistik Produk</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Setting</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Slider</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Kategori Unggulan</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Berita</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Akun</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/landingpageheader') }}">Header</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/landingpageberita') }}">Berita</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/landingpagejenisprogram') }}">Program</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/landingpageagenda') }}">Agenda</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/backendanggota') }}">Anggota</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/communitypartners') }}">Community Partners</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/keuangan') }}">Keuangan</a>
                         @endif
 
                         @if(auth()->user()->level=='admin')
-                        <a class="collapse-item" href="{{  url('/admin/landingpagejenisprogram') }}">Program</a>
-                        <a class="collapse-item" href="{{  url('/admin/landingpageagenda') }}">Agenda</a>
-                        <a class="collapse-item" href="{{  url('/admin/communitypartners') }}">Community Partners</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/landingpagejenisprogram') }}">Program</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/landingpageagenda') }}">Agenda</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/communitypartners') }}">Community Partners</a>
                         @endif
 
                         @if(auth()->user()->level=='bendahara')
-                        <a class="collapse-item" href="{{  url('/admin/landingpageagenda') }}">Agenda</a>
-                        <a class="collapse-item" href="{{  url('/admin/keuangan') }}">Keuangan</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/landingpageagenda') }}">Agenda</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/keuangan') }}">Keuangan</a>
                         @endif
 
                         @if(auth()->user()->level=='wakil-ketua')
-                        <a class="collapse-item" href="{{  url('/admin/landingpageagenda') }}">Agenda</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/landingpageagenda') }}">Agenda</a>
                         @endif
 
                         @if(auth()->user()->level=='organisasi')
-                        <a class="collapse-item" href="{{  url('/admin/landingpagejenisprogram') }}">Program</a>
-                        <a class="collapse-item" href="{{  url('/admin/landingpageagenda') }}">Agenda</a>
-                        <a class="collapse-item" href="{{  url('/admin/backendanggota') }}">Anggota</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/landingpagejenisprogram') }}">Program</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/landingpageagenda') }}">Agenda</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/backendanggota') }}">Anggota</a>
                         @endif
 
                         @if(auth()->user()->level=='infokom')
-                        <a class="collapse-item" href="{{  url('/admin/landingpageberita') }}">Berita</a>
-                        <a class="collapse-item" href="{{  url('/admin/landingpagejenisprogram') }}">Program</a>
-                        <a class="collapse-item" href="{{  url('/admin/landingpageagenda') }}">Agenda</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/landingpageberita') }}">Berita</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/landingpagejenisprogram') }}">Program</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/landingpageagenda') }}">Agenda</a>
                         @endif
 
                         @if(auth()->user()->level=='media')
-                        <a class="collapse-item" href="{{  url('/admin/landingpageberita') }}">Berita</a>
+                        <a class="collapse-item" href="{{  url('ruangadminbackend/landingpageberita') }}">Berita</a>
                         @endif
 
                     </div>
@@ -188,7 +182,14 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
-                                <a href="{{ route('logout') }}" class="btn btn-primary">Logout</a>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+
+                                    <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -243,6 +244,7 @@
         <script src="{{ asset('register/js/ruang-admin.min.js') }}"></script>
         <!-- DataTable -->
         <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
 </body>
 
 </html>
@@ -251,5 +253,7 @@
 {{-- {{ dd($creator) }} --}}
 <script>
     window.location = "{{ route('profile', $creator) }}";
+
 </script>
 @endif
+

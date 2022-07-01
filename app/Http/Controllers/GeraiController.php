@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BackendAdmin;
+use App\Models\Gerai;
 use Illuminate\Http\Request;
 
-class BackendAdminController extends Controller
+class GeraiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,12 @@ class BackendAdminController extends Controller
     public function index()
     {
         $user = auth()->user()->id;
-        return view('ruangadminbackend/index', [
+        $pendapatanGerai = Gerai::all();
+        return view('admin/pendapatangerai', [
             "title" => "KMD - Komunitas Mitra Desa",
             "creator" => $user,
+            "menu" => "Pendapatan Gerai",
+            "pendapatanGerai" => $pendapatanGerai,
         ]);
     }
 
@@ -45,10 +48,10 @@ class BackendAdminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\BackendAdmin  $backendAdmin
+     * @param  \App\Models\Gerai  $gerai
      * @return \Illuminate\Http\Response
      */
-    public function show(BackendAdmin $backendAdmin)
+    public function show(Gerai $gerai)
     {
         //
     }
@@ -56,10 +59,10 @@ class BackendAdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\BackendAdmin  $backendAdmin
+     * @param  \App\Models\Gerai  $gerai
      * @return \Illuminate\Http\Response
      */
-    public function edit(BackendAdmin $backendAdmin)
+    public function edit(Gerai $gerai)
     {
         //
     }
@@ -68,10 +71,10 @@ class BackendAdminController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\BackendAdmin  $backendAdmin
+     * @param  \App\Models\Gerai  $gerai
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BackendAdmin $backendAdmin)
+    public function update(Request $request, Gerai $gerai)
     {
         //
     }
@@ -79,10 +82,10 @@ class BackendAdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\BackendAdmin  $backendAdmin
+     * @param  \App\Models\Gerai  $gerai
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BackendAdmin $backendAdmin)
+    public function destroy(Gerai $gerai)
     {
         //
     }
