@@ -17,7 +17,7 @@ Laravel 9.
 
 ## Back End
 
-Laravel Jetstream.
+Laravel Breeze.
 
 livewire.
 
