@@ -17,11 +17,9 @@ Laravel 9.
 
 ## Back End
 
-Laravel Breeze.
+Laravel UI.
 
-livewire.
-
-tailwindcss.
+php artisan ui bootstrap --auth.
 
 ## Web Server
 

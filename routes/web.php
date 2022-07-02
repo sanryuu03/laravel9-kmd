@@ -1,8 +1,6 @@
 <?php
-require __DIR__.'/auth.php';
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BackendAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +16,3 @@ use App\Http\Controllers\BackendAdminController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-Route::get('/ruangadminbackend', [BackendAdminController::class, 'index'])->middleware(['auth'])->name('ruang.admin.backend');
