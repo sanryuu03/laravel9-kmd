@@ -115,6 +115,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $superAdmin->assignRole('super admin');
+        $superAdmin->givePermissionTo('kepengurusan perusahaan');
 
         $admin = User::create([
             'name' => 'admin role',
@@ -133,5 +134,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $user->assignRole('anggota');
+        $user->givePermissionTo('akun');
     }
 }

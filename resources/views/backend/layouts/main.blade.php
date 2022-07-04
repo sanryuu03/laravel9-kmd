@@ -35,6 +35,7 @@
                         <li class="nav-item">
                             <a href="{{  url('/backendKMD') }}" class="nav-link">Home</a>
                         </li>
+                        @can('kepengurusan perusahaan')
                         <li class="nav-item">
                             <a href="#" class="nav-link">Akun</a>
                         </li>
@@ -89,6 +90,18 @@
 
                             </ul>
                         </li>
+                        @endcan
+
+                        @can('akun')
+                        <li class="nav-item dropdown">
+                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Gerai</a>
+                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                <li><a href="{{  route('backend.gerai') }}" class="dropdown-item">Tambahkan Gerai</a></li>
+                                <li><a href="" class="dropdown-item">Profile Gerai</a></li>
+                                <li><a href="#" class="dropdown-item">Pendapatan Gerai</a></li>
+                            </ul>
+                        </li>
+                        @endcan
                     </ul>
 
                 </div>
