@@ -23,6 +23,8 @@ livewire.
 
 php artisan jetstream:install livewire --teams.
 
+AdminLTE v3.2.0 Latest.
+
 ## Web Server
 
 PHP 8.1.1.
