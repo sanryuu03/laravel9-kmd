@@ -34,6 +34,18 @@ Route::middleware(['role:super admin', 'permission:kepengurusan perusahaan|gerai
     Route::get('/backendKMD', [BackendKomunitasMitraDesaController::class, 'index'])->name('backend.kmd');
     Route::get('/backendKMDLogout', [BackendKomunitasMitraDesaController::class, 'logout'])->name('backend.logout');
 });
+Route::middleware(['role:anggota'])->group(function () {
+    Route::get('/backendKMD', [BackendKomunitasMitraDesaController::class, 'index'])->name('backend.kmd');
+    Route::get('/backendKMDLogout', [BackendKomunitasMitraDesaController::class, 'logout'])->name('backend.logout');
+
+    Route::get('/backendGerai', [BackendGeraiController::class, 'index'])->name('backend.gerai');
+    Route::get('/backendAddGerai', [BackendGeraiController::class, 'tambahGerai'])->name('backend.tambah.gerai');
+    Route::post('/backendSaveGerai', [BackendGeraiController::class, 'saveformgerai'])->name('save.form.gerai');
+    Route::get('/backendProfileGerai/{id}', [BackendGeraiController::class, 'profilegerai'])->name('backend.profile.gerai');
+    Route::post('/backendDeleteGerai/{id}', [BackendGeraiController::class, 'destroy'])->name('backend.delete.gerai');
+
+    Route::get('/backendVerifikasiPembayaranGerai', [BackendVerifikasiPembayaranGeraiController::class, 'index'])->name('backend.verifikasi.pembayaran.gerai');
+});
 
 // Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
 //     Route::get('/backendKMD', [BackendKomunitasMitraDesaController::class, 'index'])->name('backend.kmd');
