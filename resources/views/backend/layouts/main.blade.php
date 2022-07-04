@@ -37,7 +37,29 @@
                             <a href="index3.html" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Contact</a>
+                            <a href="#" class="nav-link">Akun</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Kepengurusan Perusahaan</a>
+                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                <li><a href="#" class="dropdown-item">Admin </a></li>
+                                <li><a href="#" class="dropdown-item">Gerai</a></li>
+                                <li><a href="#" class="dropdown-item">Pengelola Gerai</a></li>
+                                <li><a href="#" class="dropdown-item">Bisnis Developer</a></li>
+                                <li><a href="#" class="dropdown-item">Pembayaran</a></li>
+                                <li><a href="#" class="dropdown-item">Keuangan</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Produk</a>
+                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                <li><a href="#" class="dropdown-item">Kategori </a></li>
+                                <li><a href="#" class="dropdown-item">Sub Kategori</a></li>
+                                <li><a href="#" class="dropdown-item">Statistik Produk</a></li>
+                                <li><a href="#" class="dropdown-item">Satuan Produk</a></li>
+                                <li><a href="#" class="dropdown-item">Pembayaran</a></li>
+                                <li><a href="#" class="dropdown-item">Keuangan</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Dropdown</a>
