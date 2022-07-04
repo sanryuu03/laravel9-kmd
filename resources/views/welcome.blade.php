@@ -40,7 +40,7 @@
             <img src="{{ asset('frontend/images/page9a.jpg') }}" class="img-fluid" alt="...">
         </div>
         <div class="container-fluid">
-            <a href="{{ route('register') }}" class="">
+            <a href="{{ route('backend.kmd') }}" class="">
             <img src="{{ asset('frontend/images/page18a.jpg') }}" class="img-fluid" alt="...">
             </a>
         </div>

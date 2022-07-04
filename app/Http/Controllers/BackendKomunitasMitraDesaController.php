@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BackendKomunitasMitraDesa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\BackendKomunitasMitraDesa;
 
 class BackendKomunitasMitraDesaController extends Controller
 {
@@ -20,6 +21,14 @@ class BackendKomunitasMitraDesaController extends Controller
             "menu" => "Backend",
             "creator" => $user,
         ]);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::guest();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/login');
     }
 
     /**

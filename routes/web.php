@@ -29,7 +29,8 @@ Route::middleware([
 });
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
-    Route::get('/backendKMD', [BackendKomunitasMitraDesaController::class, 'index'])->name('backend');
+    Route::get('/backendKMD', [BackendKomunitasMitraDesaController::class, 'index'])->name('backend.kmd');
+    Route::get('/backendKMDLogout', [BackendKomunitasMitraDesaController::class, 'logout'])->name('backend.logout');
 
 
     Route::get('/user/profile', function () {
