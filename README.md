@@ -17,9 +17,11 @@ Laravel 9.
 
 ## Back End
 
-Laravel UI.
+Laravel Jetstream.
 
-php artisan ui bootstrap --auth.
+livewire.
+
+php artisan jetstream:install livewire --teams.
 
 ## Web Server
 
