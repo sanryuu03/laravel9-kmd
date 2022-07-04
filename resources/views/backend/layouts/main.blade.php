@@ -1,5 +1,3 @@
-@if(auth()->user()->level!='anggota')
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,8 +13,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link href="{{ asset('backend/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('backend/dist/css/adminlte.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+
 </head>
-@auth
 </head>
 <body class="hold-transition layout-top-nav">
     <div class="wrapper">
@@ -43,7 +42,7 @@
                             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Kepengurusan Perusahaan</a>
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                                 <li><a href="#" class="dropdown-item">Admin </a></li>
-                                <li><a href="#" class="dropdown-item">Gerai</a></li>
+                                <li><a href="{{  route('backend.gerai') }}" class="dropdown-item">Gerai</a></li>
                                 <li><a href="#" class="dropdown-item">Pengelola Gerai</a></li>
                                 <li><a href="#" class="dropdown-item">Bisnis Developer</a></li>
                                 <li><a href="#" class="dropdown-item">Pembayaran</a></li>
@@ -115,66 +114,8 @@
         <div class="content-wrapper">
 
             <div class="content-header">
-    @yield('menuContent')
+                @yield('menuContent')
             </div>
-
-
-            <div class="content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the card's
-                                        content.
-                                    </p>
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
-                                </div>
-                            </div>
-                            <div class="card card-primary card-outline">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the card's
-                                        content.
-                                    </p>
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="card-title m-0">Featured</h5>
-                                </div>
-                                <div class="card-body">
-                                    <h6 class="card-title">Special title treatment</h6>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                            <div class="card card-primary card-outline">
-                                <div class="card-header">
-                                    <h5 class="card-title m-0">Featured</h5>
-                                </div>
-                                <div class="card-body">
-                                    <h6 class="card-title">Special title treatment</h6>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
         </div>
 
 
@@ -218,26 +159,6 @@
             </div>
         </div>
     </div>
-    @else
-    <style>
-        .container {
-            position: relative;
-        }
-
-        .center {
-            position: absolute;
-            margin-top: 250px;
-            top: 50%;
-            width: 100%;
-            text-align: center;
-            font-size: 18px;
-        }
-
-    </style>
-    <div class="container">
-        <a class="btn btn-primary center" href="{{ route('admin.login') }}">Login</a>
-    </div>
-    @endauth
 
 
     <script src="{{ asset('backend/jquery/jquery.min.js') }}"></script>
@@ -249,16 +170,11 @@
     </script>
     <script src="{{ asset('backend/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('backend/dist/js/adminlte.js') }}"></script>
-    <!-- DataTable -->
+    <!-- Menambahakan Date Range Picker -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <script src="{{ asset('backend/js/main.js') }}"></script>
 </body>
 
 </html>
-@else
 {{-- {{ dd(auth()->user()->id) }} --}}
 {{-- {{ dd($creator) }} --}}
-<script>
-    window.location = "{{ route('profile', $creator) }}";
-
-</script>
-@endif
