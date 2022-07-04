@@ -23,7 +23,7 @@
 
         <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
             <div class="container">
-                <a href="../../index3.html" class="navbar-brand">
+                <a href="{{  url('/backendKMD') }}" class="navbar-brand">
                     <img src="backend/img/logo/logo2.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                     <span class="brand-text font-weight-bold">KMD</span>
                 </a>
@@ -34,7 +34,7 @@
 
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="index3.html" class="nav-link">Home</a>
+                            <a href="{{  url('/backendKMD') }}" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Akun</a>
