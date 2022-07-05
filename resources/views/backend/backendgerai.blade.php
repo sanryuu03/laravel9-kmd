@@ -32,6 +32,7 @@
               <thead>
                   <tr>
                       <th width="0.1%">No</th>
+                      <th width="1%">Status Gerai</th>
                       <th width="1%">Nama Gerai</th>
                       <th width="1%">Nama Pengelola</th>
                       <th width="1%">WA</th>
@@ -49,6 +50,11 @@
                   @foreach($gerai as $item)
                   <tr>
                       <td>{{ $loop->iteration }}</td>
+                      @if($item->status_gerai != 'belum bayar')
+                      <td><a href="{{ route('backend.show.verifikasi.pembayaran.gerai', $item->id) }}" class="btn btn-success btn-sm mb-1">{{ $item->status_gerai }}</a></td>
+                      @else
+                      <td><a href="{{ route('backend.verifikasi.pembayaran.gerai', $item->id) }}" class="btn btn-warning btn-sm mb-1">{{ $item->status_gerai }}</a></td>
+                      @endif
                       <td>{{ $item->nama_gerai }}</td>
                       <td>{{ $item->nama_pengelola }}</td>
                       <td>{{ $item->wa }}</td>
@@ -60,14 +66,23 @@
                       <td>{{ date('d-M-y H:i', strtotime($item->updated_at)) }} WIB</td>
                       <td>{{ $item->edited_by }}</td>
                       <td>
+                      @if($item->status_gerai != 'belum bayar')
                           <a href="{{ route('backend.profile.gerai', $item->id) }}" class="btn btn-primary btn-sm mb-1"><i class="fa-solid fa-eye"></i></a>
                           <a href="{{ route('backend.profile.gerai', $item->id) }}" class="btn btn-warning btn-sm mb-1"><i class="fa-solid fa-pencil"></i></a>
-                          <form action="{{ route('backend.delete.gerai', $item->id) }}" method="POST" class="d-inline">
+                          <form action="{{ route('backend.destroy.gerai', $item->id) }}" method="POST" class="d-inline">
                               {!! method_field('post') . csrf_field() !!}
                               <button type="submit" class="btn btn-danger btn-sm">
                                   <i class="fa-solid fa-trash"></i>
                               </button>
                           </form>
+                      @else
+                          <form action="{{ route('backend.destroy.gerai', $item->id) }}" method="POST" class="d-inline">
+                              {!! method_field('post') . csrf_field() !!}
+                              <button type="submit" class="btn btn-danger btn-sm">
+                                  <i class="fa-solid fa-trash"></i>
+                              </button>
+                          </form>
+                      @endif
                       </td>
                   </tr>
                   @endforeach

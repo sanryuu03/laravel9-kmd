@@ -85,9 +85,11 @@ class BackendGeraiController extends Controller
      * @param  \App\Models\BackendGerai  $backendGerai
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BackendGerai $backendGerai)
+    public function destroy(BackendGerai $backendGerai, $id)
     {
-        //
+        $backendGerai = BackendGerai::find($id);
+        $backendGerai->delete();
+        return redirect()->back()->with('success', 'Gerai berhasil di hapus');
     }
 
     public function tambahGerai(BackendGerai $backendGerai)
@@ -108,7 +110,6 @@ class BackendGeraiController extends Controller
 
     public function saveformgerai(Request $request)
     {
-        // return $request;
         // return $request->action;
         $data = request()->except(['_token']);
         if ($request->action == "add") {
@@ -138,8 +139,9 @@ class BackendGeraiController extends Controller
             }
 
 
-        BackendGerai::create($data);
-        return redirect()->route('backend.verifikasi.pembayaran.gerai')->with('success', 'Gerai telah ditambahkan');
+            BackendGerai::create($data);
+            // return $request;
+        return redirect()->route('backend.gerai')->with('success', 'Gerai telah ditambahkan');
         }
 
         if ($request->action == "edit") {

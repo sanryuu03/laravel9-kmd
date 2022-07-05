@@ -29,14 +29,13 @@
   <div class="card mx-3 my-3">
       <div class="card-body">
           <div class="container-fluid">
-              <form method="post" action="{{ route('save.form.gerai') }}" enctype="multipart/form-data">
+              <form method="post" action="{{ route('backend.verifikasi.pembayaran.gerai.store', $backendGerai->id) }}" enctype="multipart/form-data">
                   {{ csrf_field() }}
 
                   <div class="form-group">
                       <label>Nomor HP Bisnis Developer</label>
-                      <input type="hidden" name="id" class="form-control" value="{{ old('backendVerifikasiPembayaranGerai', $backendVerifikasiPembayaranGerai->id) }}">
-                      <input type="hidden" name="users_id" class="form-control" value="{{ $userId }}">
-                      <input type="text" readonly name="nomor_hp_bisnis_developer" class="form-control @error('nomor_hp_bisnis_developer') is-invalid @enderror" value="{{ old('nomor_hp_bisnis_developer', $backendVerifikasiPembayaranGerai->nomor_hp_bisnis_developer) }}">
+                      <input type="hidden" name="backend_gerais_id" class="form-control" value="{{ $backendGerai->id }}">
+                      <input type="text" readonly name="nomor_hp_bisnis_developer" class="form-control @error('nomor_hp_bisnis_developer') is-invalid @enderror" value="{{ old('nomor_hp_bisnis_developer', $backendGerai->nomor_hp_bisnis_developer) }}">
                       @error('nomor_hp_bisnis_developer')
                       <div class="invalid-feedback">
                           {{ $message }}
@@ -45,7 +44,7 @@
                   </div>
                   <div class="form-group">
                       <label>Bisnis Developer</label>
-                      <input type="text" readonly name="bisnis_developer" class="form-control @error('bisnis_developer') is-invalid @enderror" value="{{ old('bisnis_developer', $backendVerifikasiPembayaranGerai->bisnis_developer) }}">
+                      <input type="text" readonly name="bisnis_developer" class="form-control @error('bisnis_developer') is-invalid @enderror" value="{{ old('bisnis_developer', $backendGerai->bisnis_developer) }}">
                       @error('bisnis_developer')
                       <div class="invalid-feedback">
                           {{ $message }}
@@ -54,7 +53,7 @@
                   </div>
                   <div class="form-group">
                       <label>Nama Gerai</label>
-                      <input type="text" name="nama_gerai" class="form-control @error('nama_gerai') is-invalid @enderror" value="{{ old('nama_gerai', $backendVerifikasiPembayaranGerai->nama_gerai) }}">
+                      <input type="text" readonly name="nama_gerai" class="form-control @error('nama_gerai') is-invalid @enderror" value="{{ old('nama_gerai', $backendGerai->nama_gerai) }}">
                       @error('nama_gerai')
                       <div class="invalid-feedback">
                           {{ $message }}
@@ -63,7 +62,7 @@
                   </div>
                   <div class="form-group">
                       <label>Nama Pengelola</label>
-                      <input type="text" name="nama_pengelola" class="form-control @error('nama_pengelola') is-invalid @enderror" value="{{ old('nama_pengelola', $backendVerifikasiPembayaranGerai->nama_pengelola) }}">
+                      <input type="text" readonly name="nama_pengelola" class="form-control @error('nama_pengelola') is-invalid @enderror" value="{{ old('nama_pengelola', $backendGerai->nama_pengelola) }}">
                       @error('nama_pengelola')
                       <div class="invalid-feedback">
                           {{ $message }}
@@ -72,7 +71,7 @@
                   </div>
                   <div class="form-group">
                       <label>NIK Pengelola</label>
-                      <input type="text" name="nik" class="form-control @error('nik') is-invalid @enderror" value="{{ old('nik', $backendVerifikasiPembayaranGerai->nik) }}">
+                      <input type="text" readonly name="nik" class="form-control @error('nik') is-invalid @enderror" value="{{ old('nik', $backendGerai->nik) }}">
                       @error('nik')
                       <div class="invalid-feedback">
                           {{ $message }}
@@ -81,7 +80,7 @@
                   </div>
                   <div class="form-group">
                       <label>Telp</label>
-                      <input type="text" name="telp" class="form-control @error('telp') is-invalid @enderror" value="{{ old('telp', $backendVerifikasiPembayaranGerai->telp) }}">
+                      <input type="text" readonly name="telp" class="form-control @error('telp') is-invalid @enderror" value="{{ old('telp', $backendGerai->telp) }}">
                       @error('telp')
                       <div class="invalid-feedback">
                           {{ $message }}
@@ -90,7 +89,7 @@
                   </div>
                   <div class="form-group">
                       <label>WA</label>
-                      <input type="text" name="wa" class="form-control @error('wa') is-invalid @enderror" value="{{ old('wa', $backendVerifikasiPembayaranGerai->wa) }}">
+                      <input type="text" readonly name="wa" class="form-control @error('wa') is-invalid @enderror" value="{{ old('wa', $backendGerai->wa) }}">
                       @error('wa')
                       <div class="invalid-feedback">
                           {{ $message }}
@@ -133,10 +132,11 @@
                       </div>
                       @enderror
                   </div>
+                  <img class="mb-5 rounded-circle" width="100px" height="100px" src="{{ url('/storage/assets/backendVerifikasiPembayaranGerai/slipPembayaran/'. $backendVerifikasiPembayaranGerai->picture_path_slip_pembayaran) }}">
                   <div class="form-group">
                       <label>Slip Pembayaran <span class="font-weight-bold text-danger">(Ukuran Gambar Max 2MB)</span></label>
-                      <input type="file" name="picture_path_ktp" class="form-control @error('picture_path_ktp') is-invalid @enderror" value="{{ url('/storage/assets/backendVerifikasiPembayaranGerai/ktp/'.$backendVerifikasiPembayaranGerai->picture_path_ktp) }}">
-                      @error('picture_path_ktp')
+                      <input type="file" name="picture_path_slip_pembayaran" class="form-control @error('picture_path_slip_pembayaran') is-invalid @enderror" value="{{ url('/storage/assets/backendVerifikasiPembayaranGerai/slipPembayaran/'.$backendVerifikasiPembayaranGerai->picture_path_slip_pembayaran) }}">
+                      @error('picture_path_slip_pembayaran')
                       <div class="invalid-feedback">
                           {{ $message }}
                       </div>
