@@ -36,9 +36,6 @@
                             <a href="{{  url('/backendKMD') }}" class="nav-link">Home</a>
                         </li>
                         @can('kepengurusan perusahaan')
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Akun</a>
-                        </li>
                         <li class="nav-item dropdown">
                             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Kepengurusan Perusahaan</a>
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
@@ -113,6 +110,10 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                             <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-user-gear fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Akun
+                            </a>
                             <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Logout
