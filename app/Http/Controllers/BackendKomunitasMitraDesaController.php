@@ -21,12 +21,12 @@ class BackendKomunitasMitraDesaController extends Controller
         $this->geraiBaru = BackendGerai::where('status_gerai', 'pembayaran sedang diproses')-> get();
         $this->geraiDalamProses = BackendGerai::where('status_gerai', 'dalam proses')-> get();
         $this->geraiDiTolak = BackendGerai::where('status_gerai', 'tidak sesuai')-> get();
-        $this->geraiDiterima = BackendGerai::where('status_gerai', 'diterima')-> get();
+        $this->geraiDiterima = BackendGerai::where('status_gerai', 'sudah bayar')-> get();
 
         $hitungGeraiBaru = count($this->geraiBaru);
         $hitungGeraiDalamProses = count($this->geraiDalamProses);
         $hitungGeraiDiTolak = count($this->geraiDiTolak);
-        $hitungGeraiDiterima = count($this->geraiDiterima->skip(3));
+        $hitungGeraiDiterima = count($this->geraiDiterima);
         // return $hitungUserDiterima;
         $pendaftarBaru = $hitungGeraiBaru > 0 ? $hitungGeraiBaru:0;
         $dalamProses = $hitungGeraiDalamProses > 0 ? $hitungGeraiDalamProses:0;

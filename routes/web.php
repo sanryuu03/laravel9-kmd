@@ -90,5 +90,11 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/backendVerifikasiPembayaranGerai/pendaftarGeraiBaru/{id}', [BackendVerifikasiPembayaranGeraiController::class, 'verifikasiPendaftarGeraiBaruOlehSuperAdmin'])->name('backend.verifikasi.pembayaran.gerai.baru');
     Route::match(['get','post'],'/approve/pendaftarGeraiBaru/{id}', [BackendVerifikasiPembayaranGeraiController::class, 'approvePendaftarGeraiBaruOlehSuperAdmin'])->name('approve.pembayaran.gerai.baru');
 
+    Route::get('/backendGerai/geraiDalamProses', [BackendGeraiController::class, 'geraiDalamProses'])->name('backend.gerai.dalam.proses');
+
+    Route::get('/backendGerai/geraiDitolak', [BackendGeraiController::class, 'geraiDitolak'])->name('backend.gerai.ditolak');
+
+    Route::get('/backendGerai/geraiDiterima', [BackendGeraiController::class, 'geraiDiterima'])->name('backend.gerai.diterima');
+
 
 });

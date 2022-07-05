@@ -175,10 +175,46 @@ class BackendGeraiController extends Controller
     public function pendaftarGeraiBaru()
     {
         $user = auth()->user()->id;
-        $gerai = BackendGerai::all();
+        $gerai = BackendGerai::where('status_gerai', 'pembayaran sedang diproses')-> get();
         return view('backend/backendpendaftargeraibaru', [
             "title" => "KMD - Komunitas Mitra Desa",
             "menu" => "Pendaftar Gerai Baru",
+            "creator" => $user,
+            "gerai" => $gerai,
+        ]);
+    }
+
+    public function geraiDalamProses()
+    {
+        $user = auth()->user()->id;
+        $gerai = BackendGerai::where('status_gerai', 'dalam proses')-> get();
+        return view('backend/backendgeraidalamproses', [
+            "title" => "KMD - Komunitas Mitra Desa",
+            "menu" => "Pendaftar Gerai Dalam Proses",
+            "creator" => $user,
+            "gerai" => $gerai,
+        ]);
+    }
+
+    public function geraiDitolak()
+    {
+        $user = auth()->user()->id;
+        $gerai = BackendGerai::where('status_gerai', 'tidak sesuai')-> get();
+        return view('backend/backendgeraiditolak', [
+            "title" => "KMD - Komunitas Mitra Desa",
+            "menu" => "Pendaftar Gerai Baru Ditolak",
+            "creator" => $user,
+            "gerai" => $gerai,
+        ]);
+    }
+
+    public function geraiDiterima()
+    {
+        $user = auth()->user()->id;
+        $gerai = BackendGerai::where('status_gerai', 'sudah bayar')-> get();
+        return view('backend/backendgeraiditerima', [
+            "title" => "KMD - Komunitas Mitra Desa",
+            "menu" => "Gerai Diterima",
             "creator" => $user,
             "gerai" => $gerai,
         ]);

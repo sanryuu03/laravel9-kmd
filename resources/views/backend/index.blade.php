@@ -41,7 +41,7 @@
               <!-- Dalam Proses Card Example -->
               <div class="col-xl-3 col-md-6 mb-4">
                   <div class="card h-100">
-                      <a href="{{  url('/backendGerai/dalamProses') }}" class="d-flex">
+                      <a href="{{  url('/backendGerai/geraiDalamProses') }}" class="d-flex">
                       <div class="card-body">
                           <div class="row align-items-center">
                               <div class="col mr-2">
@@ -62,7 +62,7 @@
               <!-- Ditolak Card Example -->
               <div class="col-xl-3 col-md-6 mb-4">
                   <div class="card h-100">
-                      <a href="{{  url('/backendGerai/diTolak') }}" class="d-flex">
+                      <a href="{{  url('/backendGerai/geraiDitolak') }}" class="d-flex">
                       <div class="card-body">
                           <div class="row no-gutters align-items-center">
                               <div class="col mr-2">
@@ -84,7 +84,7 @@
               <!-- Diterima Card Example -->
               <div class="col-xl-3 col-md-6 mb-4">
                   <div class="card h-100">
-                      <a href="{{  url('/backendGerai/landingpageanggota') }}" class="d-flex">
+                      <a href="{{  url('/backendGerai/geraiDiterima') }}" class="d-flex">
                           <div class="card-body">
                               <div class="row no-gutters align-items-center">
                                   <div class="col mr-2">
