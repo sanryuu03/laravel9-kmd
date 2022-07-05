@@ -86,5 +86,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::post('/backendVerifikasiPembayaranGerai/{id}', [BackendVerifikasiPembayaranGeraiController::class, 'saveformverifikasigerai'])->name('backend.verifikasi.pembayaran.gerai.store');
     Route::get('/backendShowVerifikasiPembayaranGerai/{id}', [BackendVerifikasiPembayaranGeraiController::class, 'show'])->name('backend.show.verifikasi.pembayaran.gerai');
 
+    Route::get('/backendGerai/pendaftarGeraiBaru', [BackendGeraiController::class, 'pendaftarGeraiBaru'])->name('backend.pendaftar.gerai.baru');
+    Route::get('/backendVerifikasiPembayaranGerai/pendaftarGeraiBaru/{id}', [BackendVerifikasiPembayaranGeraiController::class, 'verifikasiPendaftarGeraiBaruOlehSuperAdmin'])->name('backend.verifikasi.pembayaran.gerai.baru');
+    Route::match(['get','post'],'/approve/pendaftarGeraiBaru/{id}', [BackendVerifikasiPembayaranGeraiController::class, 'approvePendaftarGeraiBaruOlehSuperAdmin'])->name('approve.pembayaran.gerai.baru');
+
 
 });

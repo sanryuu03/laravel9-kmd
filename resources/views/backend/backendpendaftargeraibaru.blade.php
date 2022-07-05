@@ -50,12 +50,10 @@
                   @foreach($gerai as $item)
                   <tr>
                       <td>{{ $loop->iteration }}</td>
-                      @if($item->status_gerai == 'sudah bayar')
-                      <td><a href="{{ route('backend.show.verifikasi.pembayaran.gerai', $item->id) }}" class="btn btn-success btn-sm mb-1">{{ $item->status_gerai }}</a></td>
-                      @elseif($item->status_gerai == 'pembayaran sedang diproses')
-                      <td><a href="{{ route('backend.show.verifikasi.pembayaran.gerai', $item->id) }}" class="btn btn-info btn-sm mb-1">{{ $item->status_gerai }}</a></td>
+                      @if($item->status_gerai == 'pembayaran sedang diproses')
+                      <td><a href="{{ route('backend.verifikasi.pembayaran.gerai.baru', $item->id) }}" class="btn btn-info btn-sm mb-1">{{ $item->status_gerai }}</a></td>
                       @else
-                      <td><a href="{{ route('backend.verifikasi.pembayaran.gerai', $item->id) }}" class="btn btn-warning btn-sm mb-1">{{ $item->status_gerai }}</a></td>
+                      <td><a href="{{ route('backend.show.verifikasi.pembayaran.gerai', $item->id) }}" class="btn btn-success btn-sm mb-1">{{ $item->status_gerai }}</a></td>
                       @endif
                       <td>{{ $item->nama_gerai }}</td>
                       <td>{{ $item->nama_pengelola }}</td>

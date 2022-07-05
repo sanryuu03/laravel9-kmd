@@ -96,7 +96,7 @@ class BackendGeraiController extends Controller
     {
         $userId = auth()->user()->id;
         $namaUser = auth()->user()->name;
-        $backendGerai->nomor_hp_bisnis_developer = '08123456789';
+        $backendGerai->nomor_hp_bisnis_developer = '081263245005';
         $backendGerai->bisnis_developer = 'arnold';
         return view('backend/addeditgerai', [
             "title" => "KMD - Komunitas Mitra Desa",
@@ -170,5 +170,17 @@ class BackendGeraiController extends Controller
             BackendGerai::where('id', $request->id)->update($data);
             return redirect()->route('backend.kategori.berita')->with('success', 'Kategori Berita telah diedit');
         }
+    }
+
+    public function pendaftarGeraiBaru()
+    {
+        $user = auth()->user()->id;
+        $gerai = BackendGerai::all();
+        return view('backend/backendpendaftargeraibaru', [
+            "title" => "KMD - Komunitas Mitra Desa",
+            "menu" => "Pendaftar Gerai Baru",
+            "creator" => $user,
+            "gerai" => $gerai,
+        ]);
     }
 }

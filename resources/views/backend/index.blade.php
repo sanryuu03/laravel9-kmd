@@ -12,59 +12,98 @@
       </div>
   </div>
   <!---Container Fluid-->
-              <div class="content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the card's
-                                        content.
-                                    </p>
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
-                                </div>
-                            </div>
-                            <div class="card card-primary card-outline">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the card's
-                                        content.
-                                    </p>
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
-                                </div>
-                            </div>
-                        </div>
+@can('kepengurusan perusahaan')
 
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="card-title m-0">Featured</h5>
-                                </div>
-                                <div class="card-body">
-                                    <h6 class="card-title">Special title treatment</h6>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                            <div class="card card-primary card-outline">
-                                <div class="card-header">
-                                    <h5 class="card-title m-0">Featured</h5>
-                                </div>
-                                <div class="card-body">
-                                    <h6 class="card-title">Special title treatment</h6>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
+  <div class="container-fluid">
+      <div class="card-body">
+          <div class="row mb-3">
+              <!-- New User Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                  <div class="card h-100">
+                      <a href="{{  url('/backendGerai/pendaftarGeraiBaru') }}" class="d-flex">
+                      <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                              <div class="col mr-2">
+                                  <div class="text-xs font-weight-bold text-uppercase mb-1">Pendaftar Baru</div>
+                                  <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $geraiBaru }}</div>
+                                  <div class="mt-2 mb-0 text-muted text-xs">
+                                      <span>Belum di proses</span>
+                                  </div>
+                              </div>
+                              <div class="col-auto">
+                                  <i class="fas fa-users fa-2x text-info"></i>
+                              </div>
+                          </div>
+                      </div>
+                      </a>
+                  </div>
+              </div>
+              <!-- Dalam Proses Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                  <div class="card h-100">
+                      <a href="{{  url('/backendGerai/dalamProses') }}" class="d-flex">
+                      <div class="card-body">
+                          <div class="row align-items-center">
+                              <div class="col mr-2">
+                                  <div class="text-xs font-weight-bold text-uppercase mb-1">Dalam Proses</div>
+                                  <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $geraiDalamProses }}</div>
+                                  <div class="mt-2 mb-0 text-muted text-xs">
+                                      <span>Sedang di verifikasi</span>
+                                  </div>
+                              </div>
+                              <div class="col-auto">
+                                  <i class="fas fa-tasks fa-2x text-primary"></i>
+                              </div>
+                          </div>
+                      </div>
+                      </a>
+                  </div>
+              </div>
+              <!-- Ditolak Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                  <div class="card h-100">
+                      <a href="{{  url('/backendGerai/diTolak') }}" class="d-flex">
+                      <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                              <div class="col mr-2">
+                                  <div class="text-xs font-weight-bold text-uppercase mb-1">Di Tolak</div>
+                                  <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $geraiDiTolak }}</div>
+                                  <div class="mt-2 mb-0 text-muted text-xs">
+                                      <span>Verifikasi anggota gagal</span>
+                                  </div>
+                              </div>
+                              <div class="col-auto">
+                                  <i class="fas fa-user-times fa-2x text-danger"></i>
+                              </div>
+                          </div>
+                      </div>
+                      </a>
+                  </div>
+              </div>
 
-                    </div>
-
-                </div>
-            </div>
+              <!-- Diterima Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                  <div class="card h-100">
+                      <a href="{{  url('/backendGerai/landingpageanggota') }}" class="d-flex">
+                          <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+                                  <div class="col mr-2">
+                                      <div class="text-xs font-weight-bold text-uppercase mb-1">Diterima</div>
+                                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $geraiDiterima }}</div>
+                                      <div class="mt-2 mb-0 text-muted text-xs">
+                                          <span>Anggota diterima</span>
+                                      </div>
+                                  </div>
+                                  <div class="col-auto">
+                                      <i class="fas fa-id-card fa-2x text-success"></i>
+                                  </div>
+                              </div>
+                          </div>
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+</div>
+@endcan
   @endsection

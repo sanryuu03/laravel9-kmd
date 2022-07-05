@@ -52,7 +52,6 @@ class BackendVerifikasiPembayaranGeraiController extends Controller
      */
     public function store(Request $request)
     {
-
     }
 
     /**
@@ -134,7 +133,7 @@ class BackendVerifikasiPembayaranGeraiController extends Controller
             BackendVerifikasiPembayaranGerai::create($data);
             BackendGerai::where('id', $request->id)->update(
                 [
-                    'status_gerai' => 'sudah bayar',
+                    'status_gerai' => 'pembayaran sedang diproses',
                 ]
             );
             // return $request;
@@ -167,5 +166,41 @@ class BackendVerifikasiPembayaranGeraiController extends Controller
                 return redirect()->route('backend.gerai')->with('success', 'Gerai telah ditambahkan');
             }
         }
+    }
+
+    public function verifikasiPendaftarGeraiBaruOlehSuperAdmin(BackendVerifikasiPembayaranGerai $backendVerifikasiPembayaranGerai, $id)
+    {
+        $userId = auth()->user()->id;
+        $namaUser = auth()->user()->name;
+        $backendGerai = BackendGerai::find($id);
+        $backendVerifikasiPembayaranGerai = BackendVerifikasiPembayaranGerai::find($id);
+        // return $backendVerifikasiPembayaranGerai;
+        return view('backend/backendverifikasiPembayarangeraiolehadmin', [
+            "title" => "KMD - Komunitas Mitra Desa",
+            "menu" => "Verifikasi Pembayaran Gerai Oleh Admin",
+            "userId" => $userId,
+            "namaUser" => $namaUser,
+            "backendGerai" => $backendGerai,
+            "backendVerifikasiPembayaranGerai" => $backendVerifikasiPembayaranGerai,
+            "action" => 'edit',
+        ]);
+    }
+
+    public function approvePendaftarGeraiBaruOlehSuperAdmin(Request $request)
+    {
+
+        // $pendaftarGeraiBaru = BackendGerai::where('id', $request->id)->first();
+        // return $pendaftarGeraiBaru;
+        $namaUser = auth()->user()->name;
+
+        BackendGerai::where('id', $request->id)->update(
+            [
+                'status_gerai' => 'sudah bayar',
+                'edited_by' => $namaUser,
+            ]
+        );
+
+        // return response()->json([$result]);
+        return redirect()->route('backend.pendaftar.gerai.baru')->with('success', 'Verifikasi Gerai telah disetujui');
     }
 }
