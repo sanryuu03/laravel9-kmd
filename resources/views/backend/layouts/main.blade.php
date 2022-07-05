@@ -56,6 +56,16 @@
                                 <li><a href="#" class="dropdown-item">Satuan Produk</a></li>
                                 <li><a href="#" class="dropdown-item">Pembayaran</a></li>
                                 <li><a href="#" class="dropdown-item">Keuangan</a></li>
+                                <li><a href="#" class="dropdown-item">Suplier</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Web</a>
+                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                <li><a href="#" class="dropdown-item">Setting</a></li>
+                                <li><a href="#" class="dropdown-item">slider</a></li>
+                                <li><a href="#" class="dropdown-item">Kategori Unggulan</a></li>
+                                <li><a href="#" class="dropdown-item">Berita</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
