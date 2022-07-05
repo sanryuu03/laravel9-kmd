@@ -96,5 +96,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 
     Route::get('/backendGerai/geraiDiterima', [BackendGeraiController::class, 'geraiDiterima'])->name('backend.gerai.diterima');
 
+    Route::get('/backendKMDAdmin', [BackendKomunitasMitraDesaController::class, 'backendKMDAdmin'])->name('backend.kmd.admin');
+    Route::get('/backendKMDAdmin/adminKMD', [BackendKomunitasMitraDesaController::class, 'backendKMDAdminList'])->name('backend.kmd.admin.list');
 
 });

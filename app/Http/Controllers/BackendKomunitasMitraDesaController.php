@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\BackendGerai;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use App\Models\BackendKomunitasMitraDesa;
@@ -41,6 +43,7 @@ class BackendKomunitasMitraDesaController extends Controller
         ]);
 
     }
+
     public function index()
     {
         $user = auth()->user()->id;
@@ -123,5 +126,32 @@ class BackendKomunitasMitraDesaController extends Controller
     public function destroy(BackendKomunitasMitraDesa $backendKomunitasMitraDesa)
     {
         //
+    }
+
+    public function backendKMDAdmin()
+    {
+        $user = auth()->user()->id;
+        // foreach($users as $user){
+            //     foreach($user->roles as $role) {
+                //         return $role->name;
+                //     }
+        // }
+        return view('backend/backendkmdadmin', [
+            "title" => "KMD - Komunitas Mitra Desa",
+            "menu" => "KMD Admin",
+            "creator" => $user,
+        ]);
+    }
+
+    public function backendKMDAdminList()
+    {
+        $user = auth()->user()->id;
+        $users = User::paginate(10);
+        return view('backend/backendadminkmdlist', [
+            "title" => "KMD - Komunitas Mitra Desa",
+            "menu" => "Gerai Diterima",
+            "creator" => $user,
+            "users" => $users,
+        ]);
     }
 }
