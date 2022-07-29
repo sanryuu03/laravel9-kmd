@@ -26,19 +26,19 @@
                     <img src="{{ asset('backend/img/logo/logo2.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                     <span class="brand-text font-weight-bold">KMD</span>
                 </a>
-                <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="order-1 navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+                <div class="order-3 collapse navbar-collapse" id="navbarCollapse">
 
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a href="{{  url('/backendKMD') }}" class="nav-link">Home</a>
                         </li>
-                        @can('kepengurusan perusahaan')
+                        @role('super admin')
                         <li class="nav-item dropdown">
                             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Kepengurusan Perusahaan</a>
-                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                            <ul aria-labelledby="dropdownSubMenu1" class="border-0 shadow dropdown-menu">
                                 <li><a href="{{ route('backend.kmd.admin') }}" class="dropdown-item">Admin </a></li>
                                 <li><a href="{{  route('backend.gerai') }}" class="dropdown-item">Gerai</a></li>
                                 <li><a href="#" class="dropdown-item">Pengelola Gerai</a></li>
@@ -49,7 +49,7 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Produk</a>
-                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                            <ul aria-labelledby="dropdownSubMenu1" class="border-0 shadow dropdown-menu">
                                 <li><a href="#" class="dropdown-item">Kategori </a></li>
                                 <li><a href="#" class="dropdown-item">Sub Kategori</a></li>
                                 <li><a href="#" class="dropdown-item">Statistik Produk</a></li>
@@ -61,30 +61,30 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Web</a>
-                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                            <ul aria-labelledby="dropdownSubMenu1" class="border-0 shadow dropdown-menu">
                                 <li><a href="#" class="dropdown-item">Setting</a></li>
                                 <li><a href="#" class="dropdown-item">slider</a></li>
                                 <li><a href="#" class="dropdown-item">Kategori Unggulan</a></li>
                                 <li><a href="#" class="dropdown-item">Berita</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">
+                        {{-- <li class="nav-item dropdown">
                             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Dropdown</a>
-                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                            <ul aria-labelledby="dropdownSubMenu1" class="border-0 shadow dropdown-menu">
                                 <li><a href="#" class="dropdown-item">Some action </a></li>
                                 <li><a href="#" class="dropdown-item">Some other action</a></li>
                                 <li class="dropdown-divider"></li>
 
                                 <li class="dropdown-submenu dropdown-hover">
                                     <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Hover for action</a>
-                                    <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
+                                    <ul aria-labelledby="dropdownSubMenu2" class="border-0 shadow dropdown-menu">
                                         <li>
                                             <a tabindex="-1" href="#" class="dropdown-item">level 2</a>
                                         </li>
 
                                         <li class="dropdown-submenu">
                                             <a id="dropdownSubMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">level 2</a>
-                                            <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow">
+                                            <ul aria-labelledby="dropdownSubMenu3" class="border-0 shadow dropdown-menu">
                                                 <li><a href="#" class="dropdown-item">3rd level</a></li>
                                                 <li><a href="#" class="dropdown-item">3rd level</a></li>
                                             </ul>
@@ -96,13 +96,19 @@
                                 </li>
 
                             </ul>
+                        </li> --}}
+                        <li class="nav-item dropdown">
+                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">{{ ucwords('Landing page') }}</a>
+                            <ul aria-labelledby="dropdownSubMenu1" class="border-0 shadow dropdown-menu">
+                                <li><a href="{{ route('backendHeader.index') }}" class="dropdown-item">{{ ucwords('Header') }}</a></li>
+                            </ul>
                         </li>
-                        @endcan
+                        @endrole
 
                         @can('akun')
                         <li class="nav-item dropdown">
                             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Gerai</a>
-                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                            <ul aria-labelledby="dropdownSubMenu1" class="border-0 shadow dropdown-menu">
                                 <li><a href="{{  route('backend.gerai') }}" class="dropdown-item">Tambahkan Gerai</a></li>
                                 <li><a href="" class="dropdown-item">Profile Gerai</a></li>
                                 <li><a href="#" class="dropdown-item">Pendapatan Gerai</a></li>
@@ -112,20 +118,20 @@
                     </ul>
 
                 </div>
-                <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+                <ul class="order-1 ml-auto order-md-3 navbar-nav navbar-no-expand">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="brand-image img-circle elevation-3" src="{{ asset('backend/img/boy.png') }}" style="max-width: 60px">
                             <span class="ml-2 d-none d-lg-inline text-dark small">{{ auth()->user()->name }}</span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <div class="shadow dropdown-menu dropdown-menu-right animated--grow-in" aria-labelledby="userDropdown">
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">
-                                <i class="fas fa-user-gear fa-sm fa-fw mr-2 text-gray-400"></i>
+                                <i class="mr-2 text-gray-400 fas fa-user-gear fa-sm fa-fw"></i>
                                 Akun
                             </a>
                             <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
-                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                <i class="mr-2 text-gray-400 fas fa-sign-out-alt fa-sm fa-fw"></i>
                                 Logout
                             </a>
                         </div>
