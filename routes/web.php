@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BackendGeraiController;
 use App\Http\Controllers\BackendHeaderController;
+use App\Http\Controllers\BackendHeaderMobileController;
 use App\Http\Controllers\BackendKomunitasMitraDesaController;
 use App\Http\Controllers\BackendVerifikasiPembayaranGeraiController;
 
@@ -65,4 +66,5 @@ Route::middleware(
         'auth:sanctum', config('jetstream.auth_session'), 'verified', 'permission:header'
     ])->group(function () {
         Route::resource('/backendHeader', BackendHeaderController::class);
+        Route::resource('/backendHeaderMobile', BackendHeaderMobileController::class);
 });

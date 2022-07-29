@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('backend_headers', function (Blueprint $table) {
+        Schema::create('backend_header_mobiles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('picture_path_header_web')->nullable();
+            $table->string('picture_path_header_mobile')->nullable();
             $table->string('post_by')->nullable();
             $table->string('edited_by')->nullable();
             $table->integer('created_at')->nullable();
             $table->integer('updated_at')->nullable();
+            $table->softDeletes();
             $table->string('deleted_by')->nullable();
-            $table->integer('deleted_at')->nullable();
         });
     }
 
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('backend_headers');
+        Schema::dropIfExists('backend_header_mobiles');
     }
 };
